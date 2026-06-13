@@ -34,6 +34,7 @@ try {
     console.error("Resultado esperado: La prueba fallará inmediatamente ya que la clase 'ProductoInventario' aún no está implementada.");
     console.error(error.message);
 }
+```
 Enunciado
 Etapa 2: Desarrollo de las funcionalidades básicas
 3. Implementa la funcionalidad para registrar la entidad, asegurándote de que se cumplan los requisitos especificados. Ejecuta la prueba y verifica que pase correctamente.
@@ -45,7 +46,7 @@ Resolución
 3. Implementación para registrar un producto (Fase Verde)
 Código de la prueba (JavaScript):
 
-JavaScript
+```JavaScript
 class ProductoInventario {
     constructor(codigoArticulo, nombre, stockInicial = 0) {
         this.codigoArticulo = codigoArticulo;
@@ -59,19 +60,21 @@ class ProductoInventario {
 }
 
 module.exports = { ProductoInventario };
+```
 Resultado: Al ejecutar la prueba inicial de la Etapa 1 con este código, el resultado pasa a Verde exitosamente.
 
 4. Implementación para ingresar mercadería
 Código de la prueba (Fase Roja):
 
-JavaScript
+```JavaScript
 const articulo = new ProductoInventario("A-001", "Teclado Mecánico", 50);
 articulo.agregarStock(20);
 assert.strictEqual(articulo.obtenerStock(), 70); 
 // Error: articulo.agregarStock is not a function
+```
 Código de producción actualizado (Fase Verde):
 
-JavaScript
+```JavaScript
 class ProductoInventario {
     constructor(codigoArticulo, nombre, stockInicial = 0) {
         this.codigoArticulo = codigoArticulo;
@@ -90,17 +93,19 @@ class ProductoInventario {
         this.stock += cantidad;
     }
 }
+```
 5. Implementación para retirar mercadería
 Código de la prueba (Fase Roja):
 
-JavaScript
+```JavaScript
 const articulo = new ProductoInventario("A-001", "Teclado Mecánico", 70);
 articulo.retirarStock(30);
 assert.strictEqual(articulo.obtenerStock(), 40);
 // Error: articulo.retirarStock is not a function
+```
 Código de producción actualizado (Fase Verde):
 
-JavaScript
+```JavaScript
 class ProductoInventario {
     // ... constructor, obtenerStock y agregarStock se mantienen igual
     
@@ -114,12 +119,13 @@ class ProductoInventario {
         this.stock -= cantidad;
     }
 }
+```
 6. Implementación para transferir stock entre depósitos
 Para este requerimiento, se introduce la entidad GestorDepositos que orquestará la interacción entre múltiples ubicaciones.
 
 Código de la prueba (Fase Roja):
 
-JavaScript
+```JavaScript
 const { ProductoInventario, GestorDepositos } = require('./productoInventario');
 
 const gestor = new GestorDepositos();
@@ -133,9 +139,10 @@ gestor.transferirStock("DEP-1", "DEP-2", 30);
 assert.strictEqual(depositoNorte.obtenerStock(), 70);
 assert.strictEqual(depositoSur.obtenerStock(), 50);
 // Error: GestorDepositos is not a constructor
+```
 Código de producción actualizado (Fase Verde - productoInventario.js):
 
-JavaScript
+```JavaScript
 class GestorDepositos {
     constructor() {
         this.ubicaciones = new Map();
@@ -158,6 +165,7 @@ class GestorDepositos {
 }
 
 module.exports = { ProductoInventario, GestorDepositos };
+```
 Enunciado
 Etapa 3: Pruebas adicionales y mejoras
 7. Escribe pruebas adicionales para cubrir casos de prueba específicos, como intentar retirar más artículos de los disponibles o transferir a un depósito inexistente.
@@ -169,7 +177,7 @@ Resolución
 7. Pruebas adicionales:
 Código de las pruebas (JavaScript):
 
-JavaScript
+```JavaScript
 const { ProductoInventario, GestorDepositos } = require('./productoInventario');
 const assert = require('assert');
 
@@ -189,8 +197,8 @@ assert.throws(() => {
 }, /Ubicación de destino no encontrada/);
 8. Ejecución y Ajustes (Fase Verde)
 Para asegurarnos de que estas validaciones pasen, el código de producción debe verificar activamente estas condiciones lanzando errores explícitos:
-
-JavaScript
+```
+```JavaScript
 // Fragmento de lógica clave
 retirarStock(cantidad) {
     if (cantidad > this.stock) {
@@ -209,6 +217,7 @@ transferirStock(codigoOrigen, codigoDestino, cantidad) {
     origen.retirarStock(cantidad);
     destino.agregarStock(cantidad);
 }
+```
 9. Refactorización (Refactoring)
 Problema detectado: Al revisar el código actual, notamos que tanto en agregarStock() como en retirarStock() estamos repitiendo manualmente la validación de que la cantidad sea un número positivo.
 
@@ -216,7 +225,7 @@ Acción de Refactor: Extraeremos la validación de cantidades negativas a un mé
 
 Código Refactorizado (productoInventario.js):
 
-JavaScript
+```JavaScript
 class ProductoInventario {
     constructor(codigoArticulo, nombre, stockInicial = 0) {
         this.codigoArticulo = codigoArticulo;
@@ -247,6 +256,7 @@ class ProductoInventario {
         this.stock -= cantidad;
     }
 }
+```
 10. Ejecución post-refactorización
 Al correr la suite completa de pruebas unitarias con la nueva estructura interna, todas las pruebas pasan en verde porque la interfaz pública se mantuvo intacta.
 
@@ -268,7 +278,7 @@ Stock vacío: Verificar qué pasa si se retira exactamente el total de los artí
 
 Código de pruebas para Casos Límite (JavaScript):
 
-JavaScript
+```JavaScript
 // Caso Límite 1: Intentar ingresar cero unidades
 const articuloLimite = new ProductoInventario("L-001", "Mouse", 20);
 assert.throws(() => {
@@ -280,7 +290,7 @@ articuloLimite.retirarStock(20);
 assert.strictEqual(articuloLimite.obtenerStock(), 0); // Debería funcionar sin lanzar error
 13. Ejecución final del sistema (Fase Verde)
 Las validaciones precisas implementadas durante la refactorización superan exitosamente las pruebas de frontera.
-
+```
 Al ejecutar el set completo de pruebas integradas en la consola:
 
 === INICIANDO SUITE DE PRUEBAS TDD DE INVENTARIO ===
