@@ -13,7 +13,7 @@ Objetivo:  Desarrollar una aplicación web que permita a los usuarios gestionar 
 + Descargar el historial de movimientos en formato CSV o PDF.  
 
 2- Gestión de ingresos y gastos:  
-+ Permitir la creación y edición de ingresos y gastos.  
++ Permitir la creación y edición de ingresos y gastos. 
 
 + Categorizar los ingresos y gastos por tipo (salario, alquiler, alimentación, etc.).  
 
