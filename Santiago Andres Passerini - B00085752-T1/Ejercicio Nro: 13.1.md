@@ -15,6 +15,7 @@
 ## Resolución
 
 1. ¿Qué es Extreme Programming (XP) y cuál es su objetivo principal dentro de las metodologías ágiles?
+
 Extreme Programming (XP) es un marco de trabajo ágil orientado al desarrollo de software, estructurado especialmente para escenarios donde los requisitos son difusos, mutables o conllevan un nivel de incertidumbre elevado. Se fundamenta en pilares como la flexibilidad ante el cambio, el perfeccionamiento técnico continuo y la sinergia del factor humano en el equipo.
 El propósito central de XP es elevar al máximo la calidad del producto final y reaccionar con agilidad ante las prioridades del cliente. Esto se logra amortiguando el impacto económico que suelen tener las modificaciones en el código con el paso del tiempo. Para alcanzarlo, adopta las metodologías convencionales de ingeniería y las lleva a una ejecución radical (por ejemplo, si inspeccionar el código es beneficioso, se vuelve una actividad permanente mediante el desarrollo de a dos).
 
@@ -41,6 +42,7 @@ Especificación dinámica: Una prueba bien diseñada actúa como la guía técni
 Optimización de costos de corrección: Localizar una falla inmediatamente después de escribir las líneas de código es sustancialmente más económico y ágil que detectarlo semanas más tarde en los entornos de producción o mediante revisiones manuales tardías.
 
 4. ¿Qué es Test Driven Development (TDD) y cómo se relaciona con XP?
+
 Test Driven Development (TDD) es una metodología de ingeniería en la que el programador diseña los escenarios de prueba automatizados con anterioridad a la creación del código funcional. Este enfoque se rige por una secuencia cíclica y rigurosa denominada Rojo-Verde-Refactor:
 
 Rojo (Red): Crear un test automatizado para una función inexistente, verificando que, lógicamente, falle en primera instancia.
@@ -69,6 +71,7 @@ Desventaja latente:
 Este nivel de colaboración estrecha demanda un alto desgaste de atención y una gran madurez interpersonal. En ausencia de afinidad, ante conflictos de personalidad, o si se omiten las pausas necesarias, se puede caer en el desgaste mental y en roces internos.
 
 6. ¿Qué son las historias de usuario en XP y por qué se prefieren frente a una especificación extensa de requisitos?
+
 Las Historias de Usuario son enunciados concisos y comprensibles redactados desde la perspectiva del cliente, orientados a reflejar una funcionalidad que aporta utilidad práctica al negocio. En el esquema tradicional de XP, se plasmaban en fichas o notas autoadhesivas estructurándose así: "Como [perfil], requiero [acción] para obtener [valor]".
 
 Se eligen prioritariamente por encima de los extensos pliegos de especificaciones debido a:
@@ -80,6 +83,7 @@ Ductilidad ante los cambios: Un dossier formal de cientos de páginas pierde vig
 Lenguaje universal: Al prescindir de tecnicismos complejos, operan como un canal de entendimiento fluido entre el equipo técnico y los decisores del negocio.
 
 7. ¿Qué significa Continuous Integration en XP y qué beneficios aporta al equipo de desarrollo?
+
 La Integración Continua (CI) es la disciplina mediante la cual los programadores unifican sus modificaciones en la rama de código principal con alta regularidad (múltiples veces en una jornada). Cada actualización es validada autónomamente por un sistema que compila el código y ejecuta las pruebas necesarias para alertar sobre desajustes al instante.
 
 Los beneficios clave que confiere al equipo son:
@@ -89,6 +93,7 @@ Evita las integraciones caóticas: Se eliminan los dolores de cabeza derivados d
 Detección temprana de anomalías: Si una modificación altera el ecosistema general, el sistema de CI da aviso en pocos minutos, posibilitando una solución inmediata cuando el desarrollador aún tiene el diseño fresco en su mente. Mantener la base de código estable eleva la predictibilidad del proyecto.
 
 8. ¿Cómo se aplica el concept de Weekly Cycle en un proyecto desarrollado con XP?
+
 El Ciclo Semanal marca la cadencia temporal a corto plazo en la metodología. Se ejecuta al comenzar la semana de trabajo mediante una planificación conjunta donde intervienen el cliente y los técnicos, articulándose bajo los siguientes pasos:
 
 Balance del periodo anterior: El cliente inspecciona el software terminado en los días previos para validar el cumplimiento de sus expectativas.
@@ -100,6 +105,7 @@ Apertura de subtareas: Los desarrolladores fragmentan los requerimientos selecci
 Ejecución enfocada: Durante las jornadas restantes, los profesionales se abocan de lleno a codificar, probar y consolidar dichas tareas, apuntando a entregar un incremento de software utilizable al concluir la semana.
 
 9. En XP se plantea que se fija el tiempo, el costo y la calidad, y se negocia el alcance. ¿Qué significa esta idea? Explicalo con un ejemplo.
+
 En la gestión tradicional en Cascada, se suele fijar el alcance global y se calculan de forma variable los plazos y la inversión, lo que suele decantar en demoras o en desmedro de los testeos. XP redefine este enfoque manejando las cuatro restricciones de un proyecto (Tiempo, Inversión, Calidad y Alcance):
 
 El Tiempo y el Costo se vuelven constantes (la fecha de entrega y el número de integrantes del equipo no varían). La Calidad tampoco es prescindible, dado que saltearse revisiones ralentiza la productividad futura; por ende, se sostiene bajo altos estándares de ingeniería. Así, el Alcance es el único elemento flexible: si los plazos aprietan, se reduce el volumen de características funcionales destinadas a esa entrega.
@@ -109,6 +115,7 @@ Ejemplo: Pensemos en un equipo que desarrolla una plataforma de reservas hoteler
 A una semana del lanzamiento, advierten que el tiempo es insuficiente para programar el "motor de sugerencias por preferencias de usuario" y el "módulo de canje de puntos de fidelidad". Bajo el enfoque XP, se coordina con el negocio para ajustar el alcance: se pospone el recomendador para una etapa posterior y se crea una versión manual muy básica para el sistema de puntos. El producto se estrena a término, bajo el presupuesto pautado y operando de forma robusta en sus servicios centrales (búsqueda y pasarela de pago).
 
 10. Elegí tres prácticas de XP y explicá cómo podrían aplicarse en un proyecto real de desarrollo de software.
+
 Para ejemplificarlo en un escenario real, supongamos el desarrollo de una Plataforma Web para la Gestión de Envíos de una Empresa de Logística:
 
 Cliente en el Sitio (On-Site Customer):
